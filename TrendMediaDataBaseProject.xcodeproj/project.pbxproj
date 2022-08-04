@@ -53,6 +53,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E17662C2289C44EB00DA9908 /* basic */ = {
+			isa = PBXGroup;
+			children = (
+				E1ABB527289B43D400A7FD65 /* Assets.xcassets */,
+				E1ABB529289B43D400A7FD65 /* LaunchScreen.storyboard */,
+				E1ABB51E289B43D000A7FD65 /* AppDelegate.swift */,
+				E1ABB520289B43D000A7FD65 /* SceneDelegate.swift */,
+			);
+			path = basic;
+			sourceTree = "<group>";
+		};
+		E17662C3289C450000DA9908 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E1ABB522289B43D000A7FD65 /* ViewController.swift */,
+				E1ABB524289B43D000A7FD65 /* Main.storyboard */,
+				E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		E1ABB512289B43D000A7FD65 = {
 			isa = PBXGroup;
 			children = (
@@ -74,15 +95,10 @@
 			isa = PBXGroup;
 			children = (
 				E1ABB534289B441A00A7FD65 /* APIKey.swift */,
-				E17662BD289BDE9D00DA9908 /* Identifier.swift */,
 				E17662B9289BAD3100DA9908 /* Extension+Design.swift */,
-				E1ABB522289B43D000A7FD65 /* ViewController.swift */,
-				E1ABB524289B43D000A7FD65 /* Main.storyboard */,
-				E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */,
-				E1ABB527289B43D400A7FD65 /* Assets.xcassets */,
-				E1ABB529289B43D400A7FD65 /* LaunchScreen.storyboard */,
-				E1ABB51E289B43D000A7FD65 /* AppDelegate.swift */,
-				E1ABB520289B43D000A7FD65 /* SceneDelegate.swift */,
+				E17662C3289C450000DA9908 /* Main */,
+				E17662C2289C44EB00DA9908 /* basic */,
+				E17662BD289BDE9D00DA9908 /* Identifier.swift */,
 				E1ABB52C289B43D400A7FD65 /* Info.plist */,
 			);
 			path = TrendMediaDataBaseProject;
