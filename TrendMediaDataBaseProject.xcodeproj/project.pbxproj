@@ -13,6 +13,8 @@
 		E1ABB526289B43D000A7FD65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1ABB524289B43D000A7FD65 /* Main.storyboard */; };
 		E1ABB528289B43D400A7FD65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1ABB527289B43D400A7FD65 /* Assets.xcassets */; };
 		E1ABB52B289B43D400A7FD65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1ABB529289B43D400A7FD65 /* LaunchScreen.storyboard */; };
+		E1ABB533289B43F000A7FD65 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E1ABB532289B43F000A7FD65 /* .gitignore */; };
+		E1ABB535289B441A00A7FD65 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB534289B441A00A7FD65 /* APIKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		E1ABB527289B43D400A7FD65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1ABB52A289B43D400A7FD65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1ABB52C289B43D400A7FD65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1ABB532289B43F000A7FD65 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E1ABB534289B441A00A7FD65 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,7 @@
 		E1ABB512289B43D000A7FD65 = {
 			isa = PBXGroup;
 			children = (
+				E1ABB532289B43F000A7FD65 /* .gitignore */,
 				E1ABB51D289B43D000A7FD65 /* TrendMediaDataBaseProject */,
 				E1ABB51C289B43D000A7FD65 /* Products */,
 			);
@@ -56,6 +61,7 @@
 		E1ABB51D289B43D000A7FD65 /* TrendMediaDataBaseProject */ = {
 			isa = PBXGroup;
 			children = (
+				E1ABB534289B441A00A7FD65 /* APIKey.swift */,
 				E1ABB51E289B43D000A7FD65 /* AppDelegate.swift */,
 				E1ABB520289B43D000A7FD65 /* SceneDelegate.swift */,
 				E1ABB522289B43D000A7FD65 /* ViewController.swift */,
@@ -125,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1ABB533289B43F000A7FD65 /* .gitignore in Resources */,
 				E1ABB52B289B43D400A7FD65 /* LaunchScreen.storyboard in Resources */,
 				E1ABB528289B43D400A7FD65 /* Assets.xcassets in Resources */,
 				E1ABB526289B43D000A7FD65 /* Main.storyboard in Resources */,
@@ -140,6 +147,7 @@
 			files = (
 				E1ABB523289B43D000A7FD65 /* ViewController.swift in Sources */,
 				E1ABB51F289B43D000A7FD65 /* AppDelegate.swift in Sources */,
+				E1ABB535289B441A00A7FD65 /* APIKey.swift in Sources */,
 				E1ABB521289B43D000A7FD65 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,7 +312,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -332,7 +340,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
