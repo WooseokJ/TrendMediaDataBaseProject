@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E17662BA289BAD3100DA9908 /* Extension+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17662B9289BAD3100DA9908 /* Extension+Design.swift */; };
+		E17662BE289BDE9D00DA9908 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17662BD289BDE9D00DA9908 /* Identifier.swift */; };
 		E1ABB51F289B43D000A7FD65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB51E289B43D000A7FD65 /* AppDelegate.swift */; };
 		E1ABB521289B43D000A7FD65 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB520289B43D000A7FD65 /* SceneDelegate.swift */; };
 		E1ABB523289B43D000A7FD65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB522289B43D000A7FD65 /* ViewController.swift */; };
@@ -15,9 +17,15 @@
 		E1ABB52B289B43D400A7FD65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1ABB529289B43D400A7FD65 /* LaunchScreen.storyboard */; };
 		E1ABB533289B43F000A7FD65 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E1ABB532289B43F000A7FD65 /* .gitignore */; };
 		E1ABB535289B441A00A7FD65 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB534289B441A00A7FD65 /* APIKey.swift */; };
+		E1ABB538289B455100A7FD65 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E1ABB537289B455100A7FD65 /* SwiftyJSON */; };
+		E1ABB53B289B456200A7FD65 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E1ABB53A289B456200A7FD65 /* Kingfisher */; };
+		E1ABB53E289B457000A7FD65 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E1ABB53D289B457000A7FD65 /* Alamofire */; };
+		E1ABB540289B45A900A7FD65 /* TmdbCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E17662B9289BAD3100DA9908 /* Extension+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Design.swift"; sourceTree = "<group>"; };
+		E17662BD289BDE9D00DA9908 /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		E1ABB51B289B43D000A7FD65 /* TrendMediaDataBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendMediaDataBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1ABB51E289B43D000A7FD65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1ABB520289B43D000A7FD65 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +36,7 @@
 		E1ABB52C289B43D400A7FD65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1ABB532289B43F000A7FD65 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E1ABB534289B441A00A7FD65 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = SOURCE_ROOT; };
+		E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1ABB53E289B457000A7FD65 /* Alamofire in Frameworks */,
+				E1ABB53B289B456200A7FD65 /* Kingfisher in Frameworks */,
+				E1ABB538289B455100A7FD65 /* SwiftyJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +74,15 @@
 			isa = PBXGroup;
 			children = (
 				E1ABB534289B441A00A7FD65 /* APIKey.swift */,
-				E1ABB51E289B43D000A7FD65 /* AppDelegate.swift */,
-				E1ABB520289B43D000A7FD65 /* SceneDelegate.swift */,
+				E17662BD289BDE9D00DA9908 /* Identifier.swift */,
+				E17662B9289BAD3100DA9908 /* Extension+Design.swift */,
 				E1ABB522289B43D000A7FD65 /* ViewController.swift */,
 				E1ABB524289B43D000A7FD65 /* Main.storyboard */,
+				E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */,
 				E1ABB527289B43D400A7FD65 /* Assets.xcassets */,
 				E1ABB529289B43D400A7FD65 /* LaunchScreen.storyboard */,
+				E1ABB51E289B43D000A7FD65 /* AppDelegate.swift */,
+				E1ABB520289B43D000A7FD65 /* SceneDelegate.swift */,
 				E1ABB52C289B43D400A7FD65 /* Info.plist */,
 			);
 			path = TrendMediaDataBaseProject;
@@ -89,6 +104,11 @@
 			dependencies = (
 			);
 			name = TrendMediaDataBaseProject;
+			packageProductDependencies = (
+				E1ABB537289B455100A7FD65 /* SwiftyJSON */,
+				E1ABB53A289B456200A7FD65 /* Kingfisher */,
+				E1ABB53D289B457000A7FD65 /* Alamofire */,
+			);
 			productName = TrendMediaDataBaseProject;
 			productReference = E1ABB51B289B43D000A7FD65 /* TrendMediaDataBaseProject.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +137,11 @@
 				Base,
 			);
 			mainGroup = E1ABB512289B43D000A7FD65;
+			packageReferences = (
+				E1ABB536289B455100A7FD65 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				E1ABB539289B456200A7FD65 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				E1ABB53C289B457000A7FD65 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = E1ABB51C289B43D000A7FD65 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -146,8 +171,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1ABB523289B43D000A7FD65 /* ViewController.swift in Sources */,
+				E17662BA289BAD3100DA9908 /* Extension+Design.swift in Sources */,
+				E1ABB540289B45A900A7FD65 /* TmdbCollectionViewCell.swift in Sources */,
 				E1ABB51F289B43D000A7FD65 /* AppDelegate.swift in Sources */,
 				E1ABB535289B441A00A7FD65 /* APIKey.swift in Sources */,
+				E17662BE289BDE9D00DA9908 /* Identifier.swift in Sources */,
 				E1ABB521289B43D000A7FD65 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +394,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E1ABB536289B455100A7FD65 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		E1ABB539289B456200A7FD65 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		E1ABB53C289B457000A7FD65 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E1ABB537289B455100A7FD65 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1ABB536289B455100A7FD65 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		E1ABB53A289B456200A7FD65 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1ABB539289B456200A7FD65 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		E1ABB53D289B457000A7FD65 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1ABB53C289B457000A7FD65 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E1ABB513289B43D000A7FD65 /* Project object */;
 }
