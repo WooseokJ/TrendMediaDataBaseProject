@@ -1,9 +1,3 @@
-//
-//  Extension+Design.swift
-//  TrendMediaDataBaseProject
-//
-//  Created by useok on 2022/08/04.
-//
 
 import Foundation
 import SwiftUI

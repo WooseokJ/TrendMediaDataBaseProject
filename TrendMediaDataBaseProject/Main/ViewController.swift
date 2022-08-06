@@ -6,49 +6,30 @@ import Alamofire
 import Kingfisher
 import SwiftyJSON
 
-struct data {
-    var titleName : String
-    var overView : String
-    var posterImage : String
-    var release_date : String
-    var genreId : Int
-    var score : Int
-    
-    init(titleName: String, overView : String, posterImage : String, release_date: String, genreId: Int, score: Int) {
-        self.titleName = titleName
-        self.overView = overView
-        self.posterImage = posterImage
-        self.release_date = release_date
-        self.genreId = genreId
-        self.score = score
-   
-    }
-}
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
+
+class ViewController: UIViewController{
     @IBOutlet weak var collectionView: UICollectionView!
     var dataList : [data] = []
-    var genreList : [Int : String] = [:]
+    var pagestart : Int = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.prefetchDataSource = self
         navigationItem.navBarDesign()
-        tmdbAPI()
-        layoutSetting()
-
+        tmdbAPI(page:pagestart)
+        layoutSetting(collectionview: collectionView)
     }
-    // https://api.themoviedb.org/3/tv/197067/credits?api_key=f489dc25fbe453f2a6afaf7b182defd5
-    // https://api.themoviedb.org/3/genre/movie/list?api_key=f489dc25fbe453f2a6afaf7b182defd5
-    func tmdbAPI(){
-        let url = "\(endPoint.tmdbURL)api_key=\(APIKey.TMDBKey)"
+    func tmdbAPI(page: Int){
+        let url = "\(endPoint.tmdbURL)api_key=\(APIKey.TMDBKey)&page=\(page)"
         AF.request(url, method: .get ).validate(statusCode: 200...500).responseData { [self] response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
                 print("JSON: \(json)")
                 for item in json["results"].arrayValue {
-                    let newdata = data(titleName: item["original_name"].stringValue, overView: item["overview"].stringValue, posterImage: item["poster_path"].stringValue, release_date: item["first_air_date"].stringValue, genreId: item["genre_ids"][0].intValue, score: item["popularity"].intValue)
+                    let newdata = data(titleName: item["original_name"].stringValue, overView: item["overview"].stringValue, posterImage: item["poster_path"].stringValue, release_date: item["first_air_date"].stringValue, genreId: item["genre_ids"][0].intValue, score: String(format: "%.1f", item["vote_average"].doubleValue),id: item["id"].stringValue,backDropPath: item["backdrop_path"].stringValue)
                     dataList.append(newdata)
                 }
             case .failure(let error):
@@ -56,90 +37,76 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             }
             collectionView.reloadData()
         }
-        
-        let genreURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=\(APIKey.TMDBKey)"
-        AF.request(genreURL, method: .get ).validate(statusCode: 200...500).responseData { [self] response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                
-                for new in json["genres"].arrayValue{
-                    genreList[new["id"].rawValue as! Int] = new["name"].rawValue as? String
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
-            
-            collectionView.reloadData()
-        }
     }
     
-    func layoutSetting() {
-        let layout = UICollectionViewFlowLayout()
-        let spacing : CGFloat = 15
-        let layoutwidth = UIScreen.main.bounds.width - (spacing * 2)
-        layout.itemSize = CGSize(width: layoutwidth , height: (layoutwidth / 2) * 2.5)
-        layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        layout.minimumLineSpacing = spacing
-        layout.minimumInteritemSpacing = spacing
-        collectionView.collectionViewLayout = layout
-  
-        
-        
-    }
+   
+}
+extension ViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataList.count
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TmdbCollectionViewCell", for: indexPath) as! TmdbCollectionViewCell
-        // 자세히보기버튼
-        cell.detailButton.setTitle("자세히 보기", for: .normal)
-        cell.detailButton.tintColor = .black
-        
-        // 이동하기버튼
-        cell.moveButton.setImage(UIImage(systemName: "chevron.forward"), for: .normal)
-        cell.moveButton.setTitle("", for: .normal)
-        cell.moveButton.tintColor = .black
-        cell.lineBackView.backgroundColor = .black
-        
-        
+        //자세히 보기
+        cell.detailButton.buttonDesign(title: "자세히 보기",imageName: "")
+        //이동하기
+        cell.moveButton.buttonDesign(title: "",imageName: "chevron.forward")
+        //밑줄라인
+        cell.lineBackView.backgroundColor = .black // 라인 칼러
+        // 개봉일
+        cell.releaseDateLabel.dateDesign(dateString: dataList[indexPath.item].release_date)
+        // 설명
+        cell.overviewLabel.LabelDesign(title: dataList[indexPath.item].overView,color: .systemGray2,backgroundColor: .white)
+        // 제목
         cell.titleLabel.text = dataList[indexPath.item].titleName
-        
-        cell.overviewLabel.text = dataList[indexPath.item].overView
-        cell.overviewLabel.numberOfLines = 1
-        cell.overviewLabel.textColor = .systemGray2
-        // https://image.tmdb.org/t/p/w500/
-        let imageurl = URL(string: "https://image.tmdb.org/t/p/w500/"+dataList[indexPath.item].posterImage)
+        // 이미지
+        let imageurl = URL(string: endPoint.tmdbImageURL+dataList[indexPath.item].posterImage)
         cell.posterImageView.kf.setImage(with:imageurl)
         cell.posterImageView.contentMode = .scaleToFill
-        
-        let format = DateFormatter()
-        format.dateFormat = "yyyy/MM/dd"
-        let date = format.date(from:dataList[indexPath.item].release_date)
-        format.dateFormat = "MM/dd/yyyy"
-        cell.releaseDateLabel.text = format.string(from: date!)
-        cell.releaseDateLabel.textColor = .systemGray2
-        cell.genreLabel.text = ("#"+(genreList[dataList[indexPath.item].genreId] ?? "no genre"))
-        cell.genreLabel.font = .preferredFont(forTextStyle: .title2, compatibleWith: .none)
-        cell.backView.layer.borderColor = UIColor.gray.cgColor
-        cell.backView.layer.shadowColor = UIColor.gray.cgColor
-        cell.backView.layer.borderWidth = 1
-        cell.posterImageView.layer.borderWidth = 2
-        cell.starLabel.text = "평점" //172 146 237
-        cell.starLabel.backgroundColor = UIColor(red: 172/255, green: 146/255, blue: 237/255, alpha: 1)
-        cell.scoreLabel.text = String(dataList[indexPath.item].score)
-        cell.scoreLabel.backgroundColor = .white
-        cell.starLabel.textAlignment = .center
-        cell.scoreLabel.textAlignment = .center
+        // 장르
+        let genreName = dataList[indexPath.item].genreId
+        cell.genreLabel.genreDesign(title: genreData.genreList[genreName] ?? "No genre")
+        // 백그라운드
+        cell.backView.viewDesign()
+        // 평점
+        cell.starLabel.LabelDesign(title: "평점", color: .white,backgroundColor: UIColor(red: 172/255, green: 146/255, blue: 237/255, alpha: 1))
+        // 점수
+        cell.scoreLabel.LabelDesign(title: String(dataList[indexPath.item].score), color: .black, backgroundColor: .white)
+        //링크버튼
+        cell.linkButton.linkButtonDesing(title: "", imageName: "paperclip")
         return cell
     }
-
+}
+extension ViewController : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        @available (iOS 13.0 , *) // push의경우 13.0이상부터 가능
+        func nextViewController() {
+            guard let nextVC = self.storyboard?.instantiateViewController(identifier: DetailViewController.identifier) as? DetailViewController else {return}
+            nextVC.tvId = dataList[indexPath.row].id
+            nextVC.backPath = dataList[indexPath.row].backDropPath
+            nextVC.forePath = dataList[indexPath.row].posterImage
+            nextVC.titleName = dataList[indexPath.row].titleName
+            self.navigationController?.pushViewController(nextVC, animated: true) //push타입
+        }
+        nextViewController()
+    }
+    
     
 }
 
+extension ViewController : UICollectionViewDataSourcePrefetching{
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for index in indexPaths {
+            if true {
+                pagestart += 1
+                tmdbAPI(page:pagestart )
+            }
+        }
+    }
+}
+        
+    
 
