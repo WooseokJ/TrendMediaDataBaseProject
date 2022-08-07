@@ -21,6 +21,9 @@ class ViewController: UIViewController{
         tmdbAPI(page:pagestart)
         layoutSetting(collectionview: collectionView)
     }
+    
+  
+    
     func tmdbAPI(page: Int){
         let url = "\(endPoint.tmdbURL)api_key=\(APIKey.TMDBKey)&page=\(page)"
         AF.request(url, method: .get ).validate(statusCode: 200...500).responseData { [self] response in
@@ -89,6 +92,7 @@ extension ViewController : UICollectionViewDelegate {
             nextVC.backPath = dataList[indexPath.row].backDropPath
             nextVC.forePath = dataList[indexPath.row].posterImage
             nextVC.titleName = dataList[indexPath.row].titleName
+            nextVC.overViewContent = dataList[indexPath.row].overView
             self.navigationController?.pushViewController(nextVC, animated: true) //push타입
         }
         nextViewController()
@@ -100,9 +104,10 @@ extension ViewController : UICollectionViewDelegate {
 extension ViewController : UICollectionViewDataSourcePrefetching{
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for index in indexPaths {
-            if true {
+            if true{
                 pagestart += 1
-                tmdbAPI(page:pagestart )
+                tmdbAPI(page: pagestart)
+               
             }
         }
     }

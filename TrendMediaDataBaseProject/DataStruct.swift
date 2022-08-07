@@ -17,6 +17,7 @@ struct data {
     var id : String
     var backDropPath : String
     
+    
     init(titleName: String, overView : String, posterImage : String, release_date: String, genreId: Int, score: String, id: String, backDropPath : String) {
         self.titleName = titleName
         self.overView = overView
@@ -26,6 +27,7 @@ struct data {
         self.score = score
         self.id = id
         self.backDropPath = backDropPath
+        
         
     }
 }

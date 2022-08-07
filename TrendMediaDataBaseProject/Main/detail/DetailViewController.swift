@@ -15,6 +15,7 @@ import SwiftUI
 class DetailViewController: UIViewController {
     static var identifier = "DetailViewController"
     
+    @IBOutlet weak var overViewTextView: UITextView!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
@@ -24,31 +25,27 @@ class DetailViewController: UIViewController {
     var backPath : String?
     var forePath : String?
     var titleName : String?
-    
+    var overViewContent : String?
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: DetailTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: DetailTableViewCell.identifier)
         tableView.rowHeight = 100
-        let backImageURL = URL(string: endPoint.tmdbImageURL+(backPath ?? ""))
-        backImageView.kf.setImage(with: backImageURL)
-        
-        let foreImageURL = URL(string: endPoint.tmdbImageURL+(forePath ?? ""))
-        posterImageView.kf.setImage(with: foreImageURL)
-        guard let name = titleName else{
-            titleLabel.text = "제목없음"
-            return
-        }
-        titleLabel.text = name
-        titleLabel.textColor = .white
-        
-        titleLabel.font = .boldSystemFont(ofSize: 30)
+        //백그라운드 탑 이미지
+        imageViewURL(path: backPath ?? "", imageView: backImageView)
+        //포그라운드 탑 이미지
+        imageViewURL(path: forePath ?? "", imageView: posterImageView)
+        //영화 제목
+        titleLabelDesign(title: titleLabel, titlename: titleName)
+        overViewTextView.text = overViewContent
         tvdetail()
     }
     func tvdetail(){
-        let url = "\(endPoint.castURL)\(String(describing: tvId!))/credits?api_key=\(APIKey.TMDBKey)"
+        
+        let url = "\(endPoint.tvURL)\(String(describing: tvId!))/credits?api_key=\(APIKey.TMDBKey)&display=40"
         AF.request(url, method: .get ).validate(statusCode: 200...500).responseData { [self] response in
             switch response.result {
             case .success(let value):
@@ -85,5 +82,3 @@ extension DetailViewController : UITableViewDataSource {
     
     
 }
-
-
