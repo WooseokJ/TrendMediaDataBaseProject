@@ -516,7 +516,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "72491E98-B926-4625-99FC-5664FB18ED81"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TrendMediaDataBaseProject/Main/ViewController.swift"
@@ -532,7 +532,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "613F8DB7-E83C-4078-9659-70F2F8EF0C5B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TrendMediaDataBaseProject/Main/ViewController.swift"

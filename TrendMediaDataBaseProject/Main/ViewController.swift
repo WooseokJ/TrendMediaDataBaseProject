@@ -48,9 +48,9 @@ class ViewController: UIViewController{
         let next = UIStoryboard(name: "Main", bundle: nil)
         let vc = next.instantiateViewController(withIdentifier: "YoutubeWebViewController") as! YoutubeWebViewController
         let nav = UINavigationController(rootViewController: vc)
-        youtube()
+
         vc.link = youtubeLink
-        print(youtubeLink!)
+
         self.present(nav,animated: true)
     }
     
@@ -107,7 +107,7 @@ extension ViewController : UICollectionViewDataSource {
         //링크버튼
         cell.linkButton.linkButtonDesing(title: "", imageName: "paperclip")
         tv_id = dataList[indexPath.row].id
-
+        youtube()
         return cell
     }
 }
