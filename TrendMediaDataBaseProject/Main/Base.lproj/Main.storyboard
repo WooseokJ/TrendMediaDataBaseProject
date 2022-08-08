@@ -111,6 +111,9 @@
                                                     </constraints>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="linkButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kdy-Mb-b5P"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -150,7 +153,7 @@
                                             <outlet property="detailButton" destination="I1d-at-6yw" id="IK9-F0-5bA"/>
                                             <outlet property="genreLabel" destination="jef-oT-Fbj" id="JwY-eJ-UfW"/>
                                             <outlet property="lineBackView" destination="4xn-L7-a2c" id="dPi-aB-gH2"/>
-                                            <outlet property="linkButton" destination="akQ-ad-7nC" id="bwe-X2-xvH"/>
+                                            <outlet property="linkButton" destination="akQ-ad-7nC" id="gmH-mJ-0X8"/>
                                             <outlet property="moveButton" destination="gDT-nz-eid" id="4kB-Ax-9F0"/>
                                             <outlet property="overviewLabel" destination="Zaa-7E-8fw" id="du1-Kg-pIU"/>
                                             <outlet property="posterImageView" destination="oXI-yL-TZm" id="xzx-U4-BOP"/>
@@ -265,6 +268,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fca-e2-jUZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1747.826086956522" y="83.705357142857139"/>
+        </scene>
+        <!--Youtube Web View Controller-->
+        <scene sceneID="jA3-Pg-Trs">
+            <objects>
+                <viewController storyboardIdentifier="YoutubeWebViewController" id="K8q-kV-NfW" customClass="YoutubeWebViewController" customModule="TrendMediaDataBaseProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ldj-0u-hfT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sO4-ZA-i29">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6gv-1e-KQO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6gv-1e-KQO" firstAttribute="trailing" secondItem="sO4-ZA-i29" secondAttribute="trailing" id="766-J8-Ikk"/>
+                            <constraint firstItem="sO4-ZA-i29" firstAttribute="leading" secondItem="6gv-1e-KQO" secondAttribute="leading" id="oKC-XJ-j6J"/>
+                            <constraint firstItem="6gv-1e-KQO" firstAttribute="bottom" secondItem="sO4-ZA-i29" secondAttribute="bottom" id="qf7-86-oBe"/>
+                            <constraint firstItem="sO4-ZA-i29" firstAttribute="top" secondItem="6gv-1e-KQO" secondAttribute="top" id="rnR-cz-VUz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="sO4-ZA-i29" id="6Uh-3d-Vwd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jn1-ye-tGZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2423.1884057971015" y="83.705357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="e0P-67-mko">

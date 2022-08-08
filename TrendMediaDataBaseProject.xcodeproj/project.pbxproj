@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E111C77B28A0F474003B8050 /* YoutubeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E111C77A28A0F474003B8050 /* YoutubeWebViewController.swift */; };
 		E1443E53289D024200267E92 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1443E52289D024200267E92 /* DetailViewController.swift */; };
 		E1443E58289D170A00267E92 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1443E57289D170A00267E92 /* APIManager.swift */; };
 		E1443E60289D388C00267E92 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1443E5F289D388C00267E92 /* DataStruct.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E111C77A28A0F474003B8050 /* YoutubeWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeWebViewController.swift; sourceTree = "<group>"; };
 		E1443E52289D024200267E92 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E1443E57289D170A00267E92 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		E1443E5F289D388C00267E92 /* DataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStruct.swift; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E111C77C28A0F4A1003B8050 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				E111C77A28A0F474003B8050 /* YoutubeWebViewController.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		E1443E56289D066500267E92 /* detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +101,7 @@
 				E1443E57289D170A00267E92 /* APIManager.swift */,
 				E1ABB524289B43D000A7FD65 /* Main.storyboard */,
 				E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */,
+				E111C77C28A0F4A1003B8050 /* WebView */,
 				E17662C2289C44EB00DA9908 /* basic */,
 				E1443E56289D066500267E92 /* detail */,
 			);
@@ -213,6 +224,7 @@
 				E1ABB523289B43D000A7FD65 /* ViewController.swift in Sources */,
 				E1443E58289D170A00267E92 /* APIManager.swift in Sources */,
 				E17662BA289BAD3100DA9908 /* Extension+Design.swift in Sources */,
+				E111C77B28A0F474003B8050 /* YoutubeWebViewController.swift in Sources */,
 				E1ABB540289B45A900A7FD65 /* TmdbCollectionViewCell.swift in Sources */,
 				E1ABB51F289B43D000A7FD65 /* AppDelegate.swift in Sources */,
 				E1ABB535289B441A00A7FD65 /* APIKey.swift in Sources */,

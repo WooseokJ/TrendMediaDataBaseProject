@@ -12,6 +12,8 @@ class ViewController: UIViewController{
     @IBOutlet weak var collectionView: UICollectionView!
     var dataList : [data] = []
     var pagestart : Int = 1
+    var youtubeLink : String?
+    var tv_id : String?
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -42,7 +44,31 @@ class ViewController: UIViewController{
         }
     }
     
-   
+    @IBAction func linkButtonClicked(_ sender: UIButton) {
+        let next = UIStoryboard(name: "Main", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: "YoutubeWebViewController") as! YoutubeWebViewController
+        let nav = UINavigationController(rootViewController: vc)
+        youtube()
+        vc.link = youtubeLink
+        print(youtubeLink!)
+        self.present(nav,animated: true)
+    }
+    
+    func youtube(){
+        let url = endPoint.tvURL+"\(tv_id!)"+"/videos?api_key=\(APIKey.TMDBKey)"
+        DispatchQueue.global().async { // 동시 여러작업 가능하게 해줘!
+       AF.request(url, method: .get).validate().responseData(queue: .global()) { [self] reponse in
+           switch reponse.result {
+           case .success(let value):
+               let json = JSON(value)
+               youtubeLink = json["results"][0]["key"].stringValue
+               print(youtubeLink)
+           case .failure(let error):
+               print(error)
+           }
+        }
+        }
+    }
 }
 extension ViewController : UICollectionViewDataSource {
     
@@ -80,6 +106,8 @@ extension ViewController : UICollectionViewDataSource {
         cell.scoreLabel.LabelDesign(title: String(dataList[indexPath.item].score), color: .black, backgroundColor: .white)
         //링크버튼
         cell.linkButton.linkButtonDesing(title: "", imageName: "paperclip")
+        tv_id = dataList[indexPath.row].id
+
         return cell
     }
 }
@@ -97,8 +125,6 @@ extension ViewController : UICollectionViewDelegate {
         }
         nextViewController()
     }
-    
-    
 }
 
 extension ViewController : UICollectionViewDataSourcePrefetching{
@@ -107,7 +133,6 @@ extension ViewController : UICollectionViewDataSourcePrefetching{
             if true{
                 pagestart += 1
                 tmdbAPI(page: pagestart)
-               
             }
         }
     }

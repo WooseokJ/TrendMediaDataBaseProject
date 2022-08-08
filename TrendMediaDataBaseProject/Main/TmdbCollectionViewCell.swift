@@ -10,6 +10,7 @@ import UIKit
 class TmdbCollectionViewCell: UICollectionViewCell {
     
     
+    
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var overviewLabel: UILabel! //요약
     @IBOutlet weak var titleLabel: UILabel! //제목
