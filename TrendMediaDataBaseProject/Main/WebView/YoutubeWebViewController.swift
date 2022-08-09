@@ -1,10 +1,3 @@
-//
-//  YoutubeWebViewController.swift
-//  TrendMediaDataBaseProject
-//
-//  Created by useok on 2022/08/08.
-//
-
 import UIKit
 import WebKit
 
@@ -17,15 +10,12 @@ class YoutubeWebViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         destinationURL+=link!
-        DispatchQueue.main.async{
+        DispatchQueue.main.async {
             self.openWebPage(url:self.destinationURL)
         }
     }
-    
 
-    
     //MARK: 웹사이트열기
     func openWebPage(url:String){
         guard let url = URL(string: url) else{ return}

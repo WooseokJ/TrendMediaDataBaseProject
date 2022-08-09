@@ -27,6 +27,13 @@
 		E1ABB53B289B456200A7FD65 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E1ABB53A289B456200A7FD65 /* Kingfisher */; };
 		E1ABB53E289B457000A7FD65 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E1ABB53D289B457000A7FD65 /* Alamofire */; };
 		E1ABB540289B45A900A7FD65 /* TmdbCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */; };
+		E1C98DC328A24D2E0030D943 /* TMDB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C98DC228A24D2E0030D943 /* TMDB.storyboard */; };
+		E1C98DC628A24D860030D943 /* TMDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C98DC528A24D860030D943 /* TMDBViewController.swift */; };
+		E1C98DC928A24EC20030D943 /* TMDBCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C98DC728A24EC20030D943 /* TMDBCollectionViewCell.swift */; };
+		E1C98DCA28A24EC20030D943 /* TMDBCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C98DC828A24EC20030D943 /* TMDBCollectionViewCell.xib */; };
+		E1C98DCC28A250F70030D943 /* TMDBTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C98DCB28A250F70030D943 /* TMDBTableViewCell.swift */; };
+		E1C98DD028A2656C0030D943 /* cardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C98DCF28A2656C0030D943 /* cardView.swift */; };
+		E1C98DD228A2657C0030D943 /* cardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1C98DD128A2657C0030D943 /* cardView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +56,13 @@
 		E1ABB532289B43F000A7FD65 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E1ABB534289B441A00A7FD65 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = SOURCE_ROOT; };
 		E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbCollectionViewCell.swift; sourceTree = "<group>"; };
+		E1C98DC228A24D2E0030D943 /* TMDB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TMDB.storyboard; sourceTree = "<group>"; };
+		E1C98DC528A24D860030D943 /* TMDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBViewController.swift; sourceTree = "<group>"; };
+		E1C98DC728A24EC20030D943 /* TMDBCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBCollectionViewCell.swift; sourceTree = "<group>"; };
+		E1C98DC828A24EC20030D943 /* TMDBCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TMDBCollectionViewCell.xib; sourceTree = "<group>"; };
+		E1C98DCB28A250F70030D943 /* TMDBTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBTableViewCell.swift; sourceTree = "<group>"; };
+		E1C98DCF28A2656C0030D943 /* cardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cardView.swift; sourceTree = "<group>"; };
+		E1C98DD128A2657C0030D943 /* cardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = cardView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,11 +145,26 @@
 				E1ABB534289B441A00A7FD65 /* APIKey.swift */,
 				E17662B9289BAD3100DA9908 /* Extension+Design.swift */,
 				E1443E5F289D388C00267E92 /* DataStruct.swift */,
+				E1C98DC428A24D350030D943 /* TMDB */,
 				E17662C3289C450000DA9908 /* Main */,
 				E17662BD289BDE9D00DA9908 /* Identifier.swift */,
 				E1ABB52C289B43D400A7FD65 /* Info.plist */,
 			);
 			path = TrendMediaDataBaseProject;
+			sourceTree = "<group>";
+		};
+		E1C98DC428A24D350030D943 /* TMDB */ = {
+			isa = PBXGroup;
+			children = (
+				E1C98DC528A24D860030D943 /* TMDBViewController.swift */,
+				E1C98DCB28A250F70030D943 /* TMDBTableViewCell.swift */,
+				E1C98DC728A24EC20030D943 /* TMDBCollectionViewCell.swift */,
+				E1C98DC828A24EC20030D943 /* TMDBCollectionViewCell.xib */,
+				E1C98DCF28A2656C0030D943 /* cardView.swift */,
+				E1C98DD128A2657C0030D943 /* cardView.xib */,
+				E1C98DC228A24D2E0030D943 /* TMDB.storyboard */,
+			);
+			path = TMDB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,9 +237,12 @@
 			files = (
 				E1ABB533289B43F000A7FD65 /* .gitignore in Resources */,
 				E1443E64289D3C8200267E92 /* DetailTableViewCell.xib in Resources */,
+				E1C98DD228A2657C0030D943 /* cardView.xib in Resources */,
 				E1ABB52B289B43D400A7FD65 /* LaunchScreen.storyboard in Resources */,
+				E1C98DCA28A24EC20030D943 /* TMDBCollectionViewCell.xib in Resources */,
 				E1ABB528289B43D400A7FD65 /* Assets.xcassets in Resources */,
 				E1ABB526289B43D000A7FD65 /* Main.storyboard in Resources */,
+				E1C98DC328A24D2E0030D943 /* TMDB.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +254,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1ABB523289B43D000A7FD65 /* ViewController.swift in Sources */,
+				E1C98DCC28A250F70030D943 /* TMDBTableViewCell.swift in Sources */,
+				E1C98DC628A24D860030D943 /* TMDBViewController.swift in Sources */,
 				E1443E58289D170A00267E92 /* APIManager.swift in Sources */,
+				E1C98DC928A24EC20030D943 /* TMDBCollectionViewCell.swift in Sources */,
 				E17662BA289BAD3100DA9908 /* Extension+Design.swift in Sources */,
 				E111C77B28A0F474003B8050 /* YoutubeWebViewController.swift in Sources */,
 				E1ABB540289B45A900A7FD65 /* TmdbCollectionViewCell.swift in Sources */,
@@ -232,6 +267,7 @@
 				E17662BE289BDE9D00DA9908 /* Identifier.swift in Sources */,
 				E1ABB521289B43D000A7FD65 /* SceneDelegate.swift in Sources */,
 				E1443E53289D024200267E92 /* DetailViewController.swift in Sources */,
+				E1C98DD028A2656C0030D943 /* cardView.swift in Sources */,
 				E1443E63289D3C8200267E92 /* DetailTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,12 +6,12 @@ import Alamofire
 import Kingfisher
 import SwiftyJSON
 
-
-
 class ViewController: UIViewController{
     @IBOutlet weak var collectionView: UICollectionView!
     var dataList : [data] = []
+    var totalCount : Int = 0
     var pagestart : Int = 1
+    
     var youtubeLink : String?
     var tv_id : String?
     override func viewDidLoad() {
@@ -20,38 +20,26 @@ class ViewController: UIViewController{
         collectionView.dataSource = self
         collectionView.prefetchDataSource = self
         navigationItem.navBarDesign()
-        tmdbAPI(page:pagestart)
+        fetchImage(startpage: pagestart)
         layoutSetting(collectionview: collectionView)
-    }
-    
-  
-    
-    func tmdbAPI(page: Int){
-        let url = "\(endPoint.tmdbURL)api_key=\(APIKey.TMDBKey)&page=\(page)"
-        AF.request(url, method: .get ).validate(statusCode: 200...500).responseData { [self] response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                print("JSON: \(json)")
-                for item in json["results"].arrayValue {
-                    let newdata = data(titleName: item["original_name"].stringValue, overView: item["overview"].stringValue, posterImage: item["poster_path"].stringValue, release_date: item["first_air_date"].stringValue, genreId: item["genre_ids"][0].intValue, score: String(format: "%.1f", item["vote_average"].doubleValue),id: item["id"].stringValue,backDropPath: item["backdrop_path"].stringValue)
-                    dataList.append(newdata)
-                }
-            case .failure(let error):
-                print(error)
-            }
-            collectionView.reloadData()
-        }
     }
     
     @IBAction func linkButtonClicked(_ sender: UIButton) {
         let next = UIStoryboard(name: "Main", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "YoutubeWebViewController") as! YoutubeWebViewController
+        let vc = next.instantiateViewController(withIdentifier: YoutubeWebViewController.reuseIdentifier) as! YoutubeWebViewController
         let nav = UINavigationController(rootViewController: vc)
-
         vc.link = youtubeLink
-
         self.present(nav,animated: true)
+    }
+    
+    func fetchImage(startpage: Int) {
+        APIManager.shared.fetchImageData(startpage: pagestart) { totalCount, dataList in
+            self.totalCount = totalCount
+            self.dataList.append(contentsOf: dataList)
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     func youtube(){
@@ -62,11 +50,10 @@ class ViewController: UIViewController{
            case .success(let value):
                let json = JSON(value)
                youtubeLink = json["results"][0]["key"].stringValue
-               print(youtubeLink)
            case .failure(let error):
                print(error)
-           }
-        }
+                }
+            }
         }
     }
 }
@@ -75,8 +62,6 @@ extension ViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataList.count
     }
-    
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TmdbCollectionViewCell", for: indexPath) as! TmdbCollectionViewCell
         //자세히 보기
@@ -130,10 +115,8 @@ extension ViewController : UICollectionViewDelegate {
 extension ViewController : UICollectionViewDataSourcePrefetching{
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for index in indexPaths {
-            if true{
-                pagestart += 1
-                tmdbAPI(page: pagestart)
-            }
+            pagestart += 1
+            fetchImage(startpage: pagestart)
         }
     }
 }

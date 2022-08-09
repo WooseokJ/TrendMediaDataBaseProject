@@ -46,3 +46,18 @@ struct youtube {
         self.youLink = youLink
     }
 }
+
+
+
+enum titleLabel : CaseIterable {
+    case zero,one,two,third
+    var sectionTitle : String {
+        switch self{
+        case.zero : return "아는 와이프와 비슷한 컨텐츠"
+        case.one : return "미스터 선샤인과 비슷한 컨텐츠"
+        case.two : return "액션 SF"
+        case.third : return "미국 TV 프로그램"
+        }
+    }
+   
+}
