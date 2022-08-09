@@ -14,7 +14,6 @@ import SwiftUI
 
 class DetailViewController: UIViewController {
 
-    var tvData : [data] = []
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var backImageView: UIImageView!
@@ -81,14 +80,10 @@ extension DetailViewController : UITableViewDataSource ,UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.reuseIdentifier, for: indexPath) as! DetailTableViewCell
         if indexPath.section == 0 {
             let overCell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.reuseIdentifier, for: indexPath) as! OverViewTableViewCell
-            print(tvData)
             overCell.overViewLabel.text = overViewContent
             overCell.overViewLabel.font = .systemFont(ofSize: 16)
             overCell.overViewLabel.textAlignment = .center
-            print(isselect)
             overCell.overViewLabel.numberOfLines = isselect ? 0 : 1
-            
-            
             overCell.moreButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
             overCell.moreButton.addTarget(self, action: #selector(moreButtonClicked), for: .touchUpInside)
             return overCell

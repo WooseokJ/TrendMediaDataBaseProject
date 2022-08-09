@@ -109,8 +109,7 @@ extension ViewController : UICollectionViewDelegate {
             nextVC.forePath = dataList[indexPath.row].posterImage
             nextVC.titleName = dataList[indexPath.row].titleName
             nextVC.overViewContent = dataList[indexPath.row].overView
-            nextVC.tvData = dataList
-         
+
             self.navigationController?.pushViewController(nextVC, animated: true) //push타입
         }
         nextViewController()
