@@ -9,8 +9,6 @@ import UIKit
 import Kingfisher
 
 class DetailTableViewCell: UITableViewCell {
-    static var identifier = "DetailTableViewCell"
-  
     @IBOutlet weak var chractorLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!

@@ -13,10 +13,8 @@ import Kingfisher
 import SwiftUI
 
 class DetailViewController: UIViewController {
-    static var identifier = "DetailViewController"
-    
-    @IBOutlet weak var overViewTextView: UITextView!
-    
+
+    var tvData : [data] = []
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var backImageView: UIImageView!
@@ -26,13 +24,16 @@ class DetailViewController: UIViewController {
     var forePath : String?
     var titleName : String?
     var overViewContent : String?
+    var isselect = false
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: DetailTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: DetailTableViewCell.identifier)
+        tableView.delegate = self
+        //Xib 연결
+        tableView.register(UINib(nibName: DetailTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: DetailTableViewCell.reuseIdentifier)
+        tableView.register(UINib(nibName: OverViewTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: OverViewTableViewCell.reuseIdentifier)
+        //테이블뷰 높이
         tableView.rowHeight = 100
         //백그라운드 탑 이미지
         imageViewURL(path: backPath ?? "", imageView: backImageView)
@@ -40,9 +41,9 @@ class DetailViewController: UIViewController {
         imageViewURL(path: forePath ?? "", imageView: posterImageView)
         //영화 제목
         titleLabelDesign(title: titleLabel, titlename: titleName)
-        overViewTextView.text = overViewContent
         tvdetail()
     }
+    // 영화 등장인물소개
     func tvdetail(){
         
         let url = "\(endPoint.tvURL)\(String(describing: tvId!))/credits?api_key=\(APIKey.TMDBKey)&display=40"
@@ -56,20 +57,43 @@ class DetailViewController: UIViewController {
                     castDataList.append(data)
                 }
                 tableView.reloadData()
-                print(castDataList)
             case .failure(let error):
                 print(error)
             }
         }
     }
+
 }
 
-extension DetailViewController : UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return castDataList.count
+extension DetailViewController : UITableViewDataSource ,UITableViewDelegate{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
+    // 테이블뷰 색션개수
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {return 1}
+        else{
+            return castDataList.count}
+    }
+    //테이블뷰 셀 삽입
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as! DetailTableViewCell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.reuseIdentifier, for: indexPath) as! DetailTableViewCell
+        if indexPath.section == 0 {
+            let overCell = tableView.dequeueReusableCell(withIdentifier: OverViewTableViewCell.reuseIdentifier, for: indexPath) as! OverViewTableViewCell
+            print(tvData)
+            overCell.overViewLabel.text = overViewContent
+            overCell.overViewLabel.font = .systemFont(ofSize: 16)
+            overCell.overViewLabel.textAlignment = .center
+            print(isselect)
+            overCell.overViewLabel.numberOfLines = isselect ? 0 : 1
+            
+            
+            overCell.moreButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+            overCell.moreButton.addTarget(self, action: #selector(moreButtonClicked), for: .touchUpInside)
+            return overCell
+        }
+        
         cell.nameLabel.text = castDataList[indexPath.row].name
         cell.chractorLabel.text = castDataList[indexPath.row].character
         
@@ -79,6 +103,13 @@ extension DetailViewController : UITableViewDataSource {
         
         return cell
     }
+
+    @objc func moreButtonClicked() {
+        isselect = !isselect
+        tableView.reloadData()
+    }
     
     
 }
+
+

@@ -11,7 +11,7 @@ class ViewController: UIViewController{
     var dataList : [data] = []
     var totalCount : Int = 0
     var pagestart : Int = 1
-    
+    var row : Int?
     var youtubeLink : String?
     var tv_id : String?
     override func viewDidLoad() {
@@ -63,7 +63,7 @@ extension ViewController : UICollectionViewDataSource {
         return dataList.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TmdbCollectionViewCell", for: indexPath) as! TmdbCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TmdbCollectionViewCell.reuseIdentifier, for: indexPath) as! TmdbCollectionViewCell
         //자세히 보기
         cell.detailButton.buttonDesign(title: "자세히 보기",imageName: "")
         //이동하기
@@ -92,20 +92,25 @@ extension ViewController : UICollectionViewDataSource {
         //링크버튼
         cell.linkButton.linkButtonDesing(title: "", imageName: "paperclip")
         tv_id = dataList[indexPath.row].id
+
         youtube()
         return cell
     }
 }
+
+
 extension ViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         @available (iOS 13.0 , *) // push의경우 13.0이상부터 가능
         func nextViewController() {
-            guard let nextVC = self.storyboard?.instantiateViewController(identifier: DetailViewController.identifier) as? DetailViewController else {return}
+            guard let nextVC = self.storyboard?.instantiateViewController(identifier: DetailViewController.reuseIdentifier) as? DetailViewController else {return}
             nextVC.tvId = dataList[indexPath.row].id
             nextVC.backPath = dataList[indexPath.row].backDropPath
             nextVC.forePath = dataList[indexPath.row].posterImage
             nextVC.titleName = dataList[indexPath.row].titleName
             nextVC.overViewContent = dataList[indexPath.row].overView
+            nextVC.tvData = dataList
+         
             self.navigationController?.pushViewController(nextVC, animated: true) //push타입
         }
         nextViewController()
@@ -122,4 +127,5 @@ extension ViewController : UICollectionViewDataSourcePrefetching{
 }
         
     
+
 

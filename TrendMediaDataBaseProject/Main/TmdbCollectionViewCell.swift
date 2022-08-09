@@ -37,6 +37,8 @@ func layoutSetting(collectionview: UICollectionView) {
     collectionview.collectionViewLayout = layout
 }
 
+
+
 extension UIButton {
     func buttonDesign(title: String, imageName: String) {
         self.setTitle(title, for: .normal)

@@ -48,7 +48,7 @@ struct youtube {
 }
 
 
-
+// TMDB 에서 색션명
 enum titleLabel : CaseIterable {
     case zero,one,two,third
     var sectionTitle : String {

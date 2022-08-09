@@ -27,6 +27,8 @@
 		E1ABB53B289B456200A7FD65 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E1ABB53A289B456200A7FD65 /* Kingfisher */; };
 		E1ABB53E289B457000A7FD65 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E1ABB53D289B457000A7FD65 /* Alamofire */; };
 		E1ABB540289B45A900A7FD65 /* TmdbCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */; };
+		E1AC6C1F28A2C12100208338 /* OverViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AC6C1D28A2C12100208338 /* OverViewTableViewCell.swift */; };
+		E1AC6C2028A2C12100208338 /* OverViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1AC6C1E28A2C12100208338 /* OverViewTableViewCell.xib */; };
 		E1C98DC328A24D2E0030D943 /* TMDB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1C98DC228A24D2E0030D943 /* TMDB.storyboard */; };
 		E1C98DC628A24D860030D943 /* TMDBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C98DC528A24D860030D943 /* TMDBViewController.swift */; };
 		E1C98DC928A24EC20030D943 /* TMDBCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C98DC728A24EC20030D943 /* TMDBCollectionViewCell.swift */; };
@@ -56,6 +58,8 @@
 		E1ABB532289B43F000A7FD65 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		E1ABB534289B441A00A7FD65 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = SOURCE_ROOT; };
 		E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbCollectionViewCell.swift; sourceTree = "<group>"; };
+		E1AC6C1D28A2C12100208338 /* OverViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewTableViewCell.swift; sourceTree = "<group>"; };
+		E1AC6C1E28A2C12100208338 /* OverViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverViewTableViewCell.xib; sourceTree = "<group>"; };
 		E1C98DC228A24D2E0030D943 /* TMDB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TMDB.storyboard; sourceTree = "<group>"; };
 		E1C98DC528A24D860030D943 /* TMDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBViewController.swift; sourceTree = "<group>"; };
 		E1C98DC728A24EC20030D943 /* TMDBCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 			children = (
 				E1443E61289D3C8200267E92 /* DetailTableViewCell.swift */,
 				E1443E62289D3C8200267E92 /* DetailTableViewCell.xib */,
+				E1AC6C1D28A2C12100208338 /* OverViewTableViewCell.swift */,
+				E1AC6C1E28A2C12100208338 /* OverViewTableViewCell.xib */,
 				E1443E52289D024200267E92 /* DetailViewController.swift */,
 			);
 			path = detail;
@@ -115,9 +121,6 @@
 				E1443E57289D170A00267E92 /* APIManager.swift */,
 				E1ABB524289B43D000A7FD65 /* Main.storyboard */,
 				E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */,
-				E111C77C28A0F4A1003B8050 /* WebView */,
-				E17662C2289C44EB00DA9908 /* basic */,
-				E1443E56289D066500267E92 /* detail */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -142,12 +145,15 @@
 		E1ABB51D289B43D000A7FD65 /* TrendMediaDataBaseProject */ = {
 			isa = PBXGroup;
 			children = (
+				E17662BD289BDE9D00DA9908 /* Identifier.swift */,
 				E1ABB534289B441A00A7FD65 /* APIKey.swift */,
 				E17662B9289BAD3100DA9908 /* Extension+Design.swift */,
 				E1443E5F289D388C00267E92 /* DataStruct.swift */,
-				E1C98DC428A24D350030D943 /* TMDB */,
 				E17662C3289C450000DA9908 /* Main */,
-				E17662BD289BDE9D00DA9908 /* Identifier.swift */,
+				E1443E56289D066500267E92 /* detail */,
+				E17662C2289C44EB00DA9908 /* basic */,
+				E111C77C28A0F4A1003B8050 /* WebView */,
+				E1C98DC428A24D350030D943 /* TMDB */,
 				E1ABB52C289B43D400A7FD65 /* Info.plist */,
 			);
 			path = TrendMediaDataBaseProject;
@@ -236,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1ABB533289B43F000A7FD65 /* .gitignore in Resources */,
+				E1AC6C2028A2C12100208338 /* OverViewTableViewCell.xib in Resources */,
 				E1443E64289D3C8200267E92 /* DetailTableViewCell.xib in Resources */,
 				E1C98DD228A2657C0030D943 /* cardView.xib in Resources */,
 				E1ABB52B289B43D400A7FD65 /* LaunchScreen.storyboard in Resources */,
@@ -258,6 +265,7 @@
 				E1C98DC628A24D860030D943 /* TMDBViewController.swift in Sources */,
 				E1443E58289D170A00267E92 /* APIManager.swift in Sources */,
 				E1C98DC928A24EC20030D943 /* TMDBCollectionViewCell.swift in Sources */,
+				E1AC6C1F28A2C12100208338 /* OverViewTableViewCell.swift in Sources */,
 				E17662BA289BAD3100DA9908 /* Extension+Design.swift in Sources */,
 				E111C77B28A0F474003B8050 /* YoutubeWebViewController.swift in Sources */,
 				E1ABB540289B45A900A7FD65 /* TmdbCollectionViewCell.swift in Sources */,
