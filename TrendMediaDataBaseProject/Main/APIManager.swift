@@ -18,7 +18,15 @@ class APIManager {
                 let json = JSON(value)
                 print("JSON: \(json)")
                 for item in json["results"].arrayValue {
-                    let newdata = data(titleName: item["original_name"].stringValue, overView: item["overview"].stringValue, posterImage: item["poster_path"].stringValue, release_date: item["first_air_date"].stringValue, genreId: item["genre_ids"][0].intValue, score: String(format: "%.1f", item["vote_average"].doubleValue),id: item["id"].stringValue,backDropPath: item["backdrop_path"].stringValue)
+                    let newdata = data(
+                        titleName: item["original_name"].stringValue,
+                        overView: item["overview"].stringValue,
+                        posterImage: item["poster_path"].stringValue,
+                        release_date: item["first_air_date"].stringValue,
+                        genreId: item["genre_ids"][0].intValue,
+                        score: String(format: "%.1f", item["vote_average"].doubleValue),
+                        id: item["id"].stringValue,
+                        backDropPath: item["backdrop_path"].stringValue)
                     dataList.append(newdata)
                 }
                 let totalCount = json["total_pages"].intValue

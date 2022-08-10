@@ -24,6 +24,12 @@ class ViewController: UIViewController{
         layoutSetting(collectionview: collectionView)
     }
     
+    @IBAction func moveButtonClicked(_ sender: UIButton) {
+        let next = UIStoryboard(name: "TMDB", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: TMDBViewController.reuseIdentifier) as! TMDBViewController
+        vc.tv_id = Int(tv_id!)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     @IBAction func linkButtonClicked(_ sender: UIButton) {
         let next = UIStoryboard(name: "Main", bundle: nil)
         let vc = next.instantiateViewController(withIdentifier: YoutubeWebViewController.reuseIdentifier) as! YoutubeWebViewController

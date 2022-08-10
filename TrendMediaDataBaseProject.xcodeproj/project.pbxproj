@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E111C77B28A0F474003B8050 /* YoutubeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E111C77A28A0F474003B8050 /* YoutubeWebViewController.swift */; };
+		E1212C5A28A39DB000803A90 /* TMDBAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1212C5928A39DB000803A90 /* TMDBAPIManager.swift */; };
 		E1443E53289D024200267E92 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1443E52289D024200267E92 /* DetailViewController.swift */; };
 		E1443E58289D170A00267E92 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1443E57289D170A00267E92 /* APIManager.swift */; };
 		E1443E60289D388C00267E92 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1443E5F289D388C00267E92 /* DataStruct.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		E111C77A28A0F474003B8050 /* YoutubeWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeWebViewController.swift; sourceTree = "<group>"; };
+		E1212C5928A39DB000803A90 /* TMDBAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPIManager.swift; sourceTree = "<group>"; };
 		E1443E52289D024200267E92 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E1443E57289D170A00267E92 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		E1443E5F289D388C00267E92 /* DataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStruct.swift; sourceTree = "<group>"; };
@@ -119,7 +121,6 @@
 			children = (
 				E1ABB522289B43D000A7FD65 /* ViewController.swift */,
 				E1443E57289D170A00267E92 /* APIManager.swift */,
-				E1ABB524289B43D000A7FD65 /* Main.storyboard */,
 				E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */,
 			);
 			path = Main;
@@ -162,6 +163,8 @@
 		E1C98DC428A24D350030D943 /* TMDB */ = {
 			isa = PBXGroup;
 			children = (
+				E1ABB524289B43D000A7FD65 /* Main.storyboard */,
+				E1212C5928A39DB000803A90 /* TMDBAPIManager.swift */,
 				E1C98DC528A24D860030D943 /* TMDBViewController.swift */,
 				E1C98DCB28A250F70030D943 /* TMDBTableViewCell.swift */,
 				E1C98DC728A24EC20030D943 /* TMDBCollectionViewCell.swift */,
@@ -273,6 +276,7 @@
 				E1ABB535289B441A00A7FD65 /* APIKey.swift in Sources */,
 				E1443E60289D388C00267E92 /* DataStruct.swift in Sources */,
 				E17662BE289BDE9D00DA9908 /* Identifier.swift in Sources */,
+				E1212C5A28A39DB000803A90 /* TMDBAPIManager.swift in Sources */,
 				E1ABB521289B43D000A7FD65 /* SceneDelegate.swift in Sources */,
 				E1443E53289D024200267E92 /* DetailViewController.swift in Sources */,
 				E1C98DD028A2656C0030D943 /* cardView.swift in Sources */,

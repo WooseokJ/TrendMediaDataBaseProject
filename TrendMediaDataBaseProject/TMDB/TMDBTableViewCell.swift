@@ -16,11 +16,12 @@ class TMDBTableViewCell: UITableViewCell {
         super.awakeFromNib()
         tableViewSetUI()
         contentCollecionView.collectionViewLayout = collectionViewLayout()
+        
     }
     // 테이블뷰 UI 구성(라벨 폰트크기,색상,백그라운드색상)
     func tableViewSetUI(){
         titleLabel.font = .boldSystemFont(ofSize: 24)
-        titleLabel.textColor = .white
+//        titleLabel.textColor = .white
         titleLabel.backgroundColor = .clear
         
     }

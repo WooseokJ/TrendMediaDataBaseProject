@@ -1,24 +1,21 @@
 import UIKit
 
+import Kingfisher
 class TMDBViewController: UIViewController {
-   
+    
+    var tv_id : Int? 
     let color : [UIColor] = [.yellow,.blue,.lightGray,.systemGreen]
-    let numberList : [[Int]] = [
-        [Int](100...110),
-        [Int](55...75),
-        [Int](5000...5006),
-        [Int](51...60),
-        [Int](61...70),
-        [Int](71...80),
-        [Int](81...100)
-    ]
+    var recommendList : [[recommendTVData]] = []
     
     @IBOutlet weak var tmdbTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         tmdbTableView.delegate = self
         tmdbTableView.dataSource = self
-        view.backgroundColor = .black
+        TMDBAPIManager.shared.requestImage(tv_id: tv_id!) { data in
+            self.recommendList = data
+            self.tmdbTableView.reloadData()
+        }
     }
 }
 //테이블뷰
@@ -34,13 +31,15 @@ extension TMDBViewController : UITableViewDelegate, UITableViewDataSource {
     //테이블뷰 셀 값넣기
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TMDBTableViewCell.reuseIdentifier, for: indexPath) as? TMDBTableViewCell else{return UITableViewCell()}
-        cell.contentCollecionView.backgroundColor = .black
+//        cell.contentCollecionView.backgroundColor = .black
         cell.contentCollecionView.delegate = self
         cell.contentCollecionView.dataSource = self
         cell.contentCollecionView.register(UINib(nibName: TMDBCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: TMDBCollectionViewCell.reuseIdentifier)
         cell.contentCollecionView.tag = indexPath.section
+        cell.contentCollecionView.reloadData() // index out of range 해결
+        
         cell.titleLabel.text = titleLabel.allCases[indexPath.section].sectionTitle
-        cell.backgroundColor = .black
+//        cell.backgroundColor = .black
         return cell
         
     }
@@ -52,19 +51,34 @@ extension TMDBViewController : UITableViewDelegate, UITableViewDataSource {
 
 // 컬렉션뷰
 extension TMDBViewController : UICollectionViewDelegate,UICollectionViewDataSource {
+    
+
     //색션개수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberList[collectionView.tag].count
+        if recommendList.isEmpty{
+            return 1
+        }
+        else{
+            return recommendList[collectionView.tag].count
+        }
     }
 
     //셀 값넣기
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TMDBCollectionViewCell.reuseIdentifier, for: indexPath) as? TMDBCollectionViewCell else{return UICollectionViewCell()}
-        
         cell.cardCellView.posterImageVIew.backgroundColor = indexPath.item.isMultiple(of: 2) ? .systemYellow : .green
         cell.cardCellView.posterImageVIew.layer.cornerRadius = 20
-        
-        
+        if recommendList.isEmpty{
+            return cell
+        }
+        else{
+            print(indexPath.item)
+
+            let url = URL(string: "\(TMDBAPIManager.shared.imageURL)\(recommendList[collectionView.tag][indexPath.item].poster_path)")
+            cell.cardCellView.posterImageVIew.kf.setImage(with: url)
+            
+            
+        }
         return cell
     }
     // 컬렉션뷰 레이아웃잡기
