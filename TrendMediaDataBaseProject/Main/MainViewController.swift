@@ -6,7 +6,7 @@ import Alamofire
 import Kingfisher
 import SwiftyJSON
 
-class ViewController: UIViewController{
+class MainViewController: UIViewController{
     @IBOutlet weak var collectionView: UICollectionView!
     var dataList : [data] = []
     var totalCount : Int = 0
@@ -19,17 +19,32 @@ class ViewController: UIViewController{
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.prefetchDataSource = self
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "list.bullet"), style: .plain, target: self, action: #selector(listClicked))
         navigationItem.navBarDesign()
         fetchImage(startpage: pagestart)
         layoutSetting(collectionview: collectionView)
     }
     
+    @objc func listClicked() {
+        let next = UIStoryboard(name: "Main", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: MapViewController.reuseIdentifier) as! MapViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+//        self.present(vc, animated: true)
+    }
+    
+    
+    // 다른영화추천목록 보기
     @IBAction func moveButtonClicked(_ sender: UIButton) {
         let next = UIStoryboard(name: "TMDB", bundle: nil)
         let vc = next.instantiateViewController(withIdentifier: TMDBViewController.reuseIdentifier) as! TMDBViewController
         vc.tv_id = Int(tv_id!)
         self.navigationController?.pushViewController(vc, animated: true)
+//
+//        let next = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = next.instantiateViewController(withIdentifier: MapViewController.reuseIdentifier) as! MapViewController
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
+    // 유투브 링크버튼 클릭
     @IBAction func linkButtonClicked(_ sender: UIButton) {
         let next = UIStoryboard(name: "Main", bundle: nil)
         let vc = next.instantiateViewController(withIdentifier: YoutubeWebViewController.reuseIdentifier) as! YoutubeWebViewController
@@ -63,7 +78,7 @@ class ViewController: UIViewController{
         }
     }
 }
-extension ViewController : UICollectionViewDataSource {
+extension MainViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataList.count
@@ -105,7 +120,7 @@ extension ViewController : UICollectionViewDataSource {
 }
 
 
-extension ViewController : UICollectionViewDelegate {
+extension MainViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         @available (iOS 13.0 , *) // push의경우 13.0이상부터 가능
         func nextViewController() {
@@ -122,7 +137,7 @@ extension ViewController : UICollectionViewDelegate {
     }
 }
 
-extension ViewController : UICollectionViewDataSourcePrefetching{
+extension MainViewController : UICollectionViewDataSourcePrefetching{
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for index in indexPaths {
             pagestart += 1

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TrendMediaDataBaseProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="TrendMediaDataBaseProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -258,15 +258,34 @@
             </objects>
             <point key="canvasLocation" x="1747.826086956522" y="83.705357142857139"/>
         </scene>
-        <!--TMDB-->
-        <scene sceneID="wGx-mp-gkE">
+        <!--Map View Controller-->
+        <scene sceneID="8UW-Qx-EHI">
             <objects>
-                <viewControllerPlaceholder storyboardName="TMDB" id="y6v-3X-Mi3" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="UER-wI-ACk"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EZB-v9-kjr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="MapViewController" id="rYb-o5-rfk" customClass="MapViewController" customModule="TrendMediaDataBaseProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sHc-s2-fFE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0GC-9P-UdG">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bwD-Hd-T9g"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bwD-Hd-T9g" firstAttribute="bottom" secondItem="0GC-9P-UdG" secondAttribute="bottom" id="MSY-e8-g2e"/>
+                            <constraint firstItem="0GC-9P-UdG" firstAttribute="top" secondItem="bwD-Hd-T9g" secondAttribute="top" id="NFA-Qm-0E3"/>
+                            <constraint firstItem="bwD-Hd-T9g" firstAttribute="trailing" secondItem="0GC-9P-UdG" secondAttribute="trailing" id="boB-ur-8hN"/>
+                            <constraint firstItem="0GC-9P-UdG" firstAttribute="leading" secondItem="bwD-Hd-T9g" secondAttribute="leading" id="v0g-TF-gZz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="0GC-9P-UdG" id="sn1-Ax-xgu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PUi-RN-TFH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1699" y="629"/>
+            <point key="canvasLocation" x="1748" y="779"/>
         </scene>
         <!--Youtube Web View Controller-->
         <scene sceneID="jA3-Pg-Trs">
