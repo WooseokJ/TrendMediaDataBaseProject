@@ -7,6 +7,7 @@
 
 import Foundation
 
+// tv data
 struct data {
     var titleName : String
     var overView : String
@@ -14,10 +15,10 @@ struct data {
     var release_date : String
     var genreId : Int
     var score : String
-    var id : String
+    var id : Int
     var backDropPath : String
     
-    init(titleName: String, overView : String, posterImage : String, release_date: String, genreId: Int, score: String, id: String, backDropPath : String) {
+    init(titleName: String, overView : String, posterImage : String, release_date: String, genreId: Int, score: String, id: Int, backDropPath : String) {
         self.titleName = titleName
         self.overView = overView
         self.posterImage = posterImage
@@ -28,19 +29,19 @@ struct data {
         self.backDropPath = backDropPath
     }
 }
-
-struct cast {
+// tv 배우 데이터
+struct castData {
     var name : String
     var character : String
     var profilePath : String
-    init(name: String, character: String, profilePath: String){
+    init(name: String, character: String, profilePath: String) {
         self.name = name
         self.character = character
         self.profilePath = profilePath
     }
 }
- 
-struct youtube {
+// youtube 링크 데이터
+struct youtubeData {
     var youLink : String
     init(youLink: String){
         self.youLink = youLink
@@ -48,19 +49,7 @@ struct youtube {
 }
 
 
-// TMDB 에서 색션명
-enum titleLabel : CaseIterable {
-    case zero,one,two,third
-    var sectionTitle : String {
-        switch self{
-            case.zero : return "아는 와이프와 비슷한 컨텐츠"
-        case.one : return "미스터 선샤인과 비슷한 컨텐츠"
-            case.two : return "액션 SF"
-            case.third : return "미국 TV 프로그램"
-        }
-    }
-}
-
+// 추천 tv data
 struct recommendTVData{
     var tvID : Int
     var tvName : String
@@ -79,8 +68,8 @@ struct Theater {
     let latitude: Double
     let longitude: Double
 }
-
-struct TheaterList {
+// 영화관 극장 정보 데이터 
+struct TheaterData {
     var mapAnnotations: [Theater] = [
         Theater(type: "롯데시네마", location: "롯데시네마 서울대입구", latitude: 37.4824761978647, longitude: 126.9521680487202),
         Theater(type: "롯데시네마", location: "롯데시네마 가산디지털", latitude: 37.47947929602294, longitude: 126.88891083192269),
@@ -91,19 +80,3 @@ struct TheaterList {
     ]
 }
 
-
-/*
- Location Authorization Custom Alert
- */
-//
-//func showRequestLocationServiceAlert() {
-//  let requestLocationServiceAlert = UIAlertController(title: "위치정보 이용", message: "위치 서비스를 사용할 수 없습니다. 기기의 '설정>개인정보 보호'에서 위치 서비스를 켜주세요.", preferredStyle: .alert)
-//  let goSetting = UIAlertAction(title: "설정으로 이동", style: .destructive) { _ in
-//
-//  }
-//  let cancel = UIAlertAction(title: "취소", style: .default)
-//  requestLocationServiceAlert.addAction(cancel)
-//  requestLocationServiceAlert.addAction(goSetting)
-//
-//  present(requestLocationServiceAlert, animated: true, completion: nil)
-//}

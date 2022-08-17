@@ -47,17 +47,14 @@ extension UIButton {
     }
     
     
-    func linkButtonDesing(title:String,imageName: String){
+    func linkButtonDesing(title:String,imageName: String) {
         self.setTitle(title, for: .normal)
         self.setImage(UIImage(systemName: imageName), for: .normal)
-        
         self.backgroundColor = .white
         self.tintColor = .black
         self.layer.cornerRadius = self.bounds.size.width * 0.5
         self.clipsToBounds = true
-        
     }
-   
 }
 
 extension UILabel {
@@ -74,7 +71,8 @@ extension UILabel {
         format.dateFormat = "yyyy/MM/dd"
         let date = format.date(from: dateString)
         format.dateFormat = "MM/dd/yyyy"
-        self.text = format.string(from:date!)
+        guard date != nil else {return}
+        self.text = format.string(from: date ?? Date())
         self.textColor = .systemGray2
     }
     func genreDesign(title: String) {
