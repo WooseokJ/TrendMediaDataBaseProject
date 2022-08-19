@@ -47,7 +47,7 @@ class APIManager {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print(json)
+                
                 var tempList : [recommendTVData] = []
                 // tv 포스터 정보 리스트
                 for item in json["results"].arrayValue {
@@ -70,7 +70,9 @@ class APIManager {
     func recommendInsert(tvIDList: [Int] , completionHandler: @escaping ([[recommendTVData]]) -> ()) {
         var recommendTVDataList : [[recommendTVData]] = []
 //        print("tvid는 이거야 : ",tv_id)
-        guard !tvIDList.isEmpty else {return}
+        guard tvIDList.count >= 4 else {
+            return
+        }
         APIManager.shared.callRequest(tv_id: tvIDList[0]) { value in
             recommendTVDataList.append(value)
             APIManager.shared.callRequest(tv_id: tvIDList[1]) { value in
@@ -79,13 +81,7 @@ class APIManager {
                     recommendTVDataList.append(value)
                     APIManager.shared.callRequest(tv_id: tvIDList[3]) { value in
                         recommendTVDataList.append(value)
-                        APIManager.shared.callRequest(tv_id: tvIDList[4]) { value in
-                            recommendTVDataList.append(value)
-                            APIManager.shared.callRequest(tv_id: tvIDList[5]) { value in
-                                recommendTVDataList.append(value)
-                                completionHandler(recommendTVDataList)
-                            }
-                        }
+                        completionHandler(recommendTVDataList)
                     }
                 }
             }

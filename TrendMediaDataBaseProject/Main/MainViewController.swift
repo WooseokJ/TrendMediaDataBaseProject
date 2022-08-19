@@ -13,9 +13,7 @@ class MainViewController: UIViewController{
     // 전체 데이터 개수
     var totalCount : Int = 0
     // 페이지 시작 개수
-    var pagestart : Int = 10
-    // 
-    var keyData : Int = 30
+    var pagestart : Int = 1
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -143,8 +141,7 @@ extension MainViewController : UICollectionViewDataSource, UICollectionViewDeleg
     // 무한스크롤
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for index in indexPaths {
-            if totalCount > dataList.count {
-                print(pagestart)
+            if (totalCount > dataList.count) && (dataList.count - 1 == index.item) {
                 pagestart += 30
                 fetchImageList(startpage: pagestart)
             }

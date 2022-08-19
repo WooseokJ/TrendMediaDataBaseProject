@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E111C77B28A0F474003B8050 /* YoutubeWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E111C77A28A0F474003B8050 /* YoutubeWebViewController.swift */; };
 		E12D6D0528A4D5BF000DF7C0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12D6D0428A4D5BF000DF7C0 /* MapViewController.swift */; };
+		E134BDA128AF569F0084CAB9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E134BDA028AF569F0084CAB9 /* SnapKit */; };
 		E1443E53289D024200267E92 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1443E52289D024200267E92 /* DetailViewController.swift */; };
 		E1443E58289D170A00267E92 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1443E57289D170A00267E92 /* APIManager.swift */; };
 		E1443E60289D388C00267E92 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1443E5F289D388C00267E92 /* DataStruct.swift */; };
@@ -83,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1ABB53E289B457000A7FD65 /* Alamofire in Frameworks */,
+				E134BDA128AF569F0084CAB9 /* SnapKit in Frameworks */,
 				E1ABB53B289B456200A7FD65 /* Kingfisher in Frameworks */,
 				E1ABB538289B455100A7FD65 /* SwiftyJSON in Frameworks */,
 			);
@@ -221,6 +223,7 @@
 				E1ABB537289B455100A7FD65 /* SwiftyJSON */,
 				E1ABB53A289B456200A7FD65 /* Kingfisher */,
 				E1ABB53D289B457000A7FD65 /* Alamofire */,
+				E134BDA028AF569F0084CAB9 /* SnapKit */,
 			);
 			productName = TrendMediaDataBaseProject;
 			productReference = E1ABB51B289B43D000A7FD65 /* TrendMediaDataBaseProject.app */;
@@ -254,6 +257,7 @@
 				E1ABB536289B455100A7FD65 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				E1ABB539289B456200A7FD65 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				E1ABB53C289B457000A7FD65 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E134BD9F28AF569F0084CAB9 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = E1ABB51C289B43D000A7FD65 /* Products */;
 			projectDirPath = "";
@@ -528,6 +532,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E134BD9F28AF569F0084CAB9 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 		E1ABB536289B455100A7FD65 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -555,6 +567,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E134BDA028AF569F0084CAB9 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E134BD9F28AF569F0084CAB9 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		E1ABB537289B455100A7FD65 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E1ABB536289B455100A7FD65 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;

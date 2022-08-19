@@ -12,19 +12,14 @@ class TMDBViewController: UIViewController {
     @IBOutlet weak var tmdbTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tmdbTableView.delegate = self
         tmdbTableView.dataSource = self
-        
         APIManager.shared.recommendInsert(tvIDList: tvList!) { data in
             self.recommendList = data
             DispatchQueue.main.async {
                 self.tmdbTableView.reloadData()
             }
-            
-
         }
-        
     }
 }
 //테이블뷰
