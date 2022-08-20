@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TmdbCollectionViewCell: UICollectionViewCell {
+class MainCollectionViewCell: UICollectionViewCell {
  
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var overviewLabel: UILabel! //요약

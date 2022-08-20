@@ -28,7 +28,7 @@
 		E1ABB538289B455100A7FD65 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = E1ABB537289B455100A7FD65 /* SwiftyJSON */; };
 		E1ABB53B289B456200A7FD65 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E1ABB53A289B456200A7FD65 /* Kingfisher */; };
 		E1ABB53E289B457000A7FD65 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E1ABB53D289B457000A7FD65 /* Alamofire */; };
-		E1ABB540289B45A900A7FD65 /* TmdbCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */; };
+		E1ABB540289B45A900A7FD65 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABB53F289B45A900A7FD65 /* MainCollectionViewCell.swift */; };
 		E1AC6C1F28A2C12100208338 /* OverViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AC6C1D28A2C12100208338 /* OverViewTableViewCell.swift */; };
 		E1AC6C2028A2C12100208338 /* OverViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1AC6C1E28A2C12100208338 /* OverViewTableViewCell.xib */; };
 		E1C560F928ACD6CE00C6F794 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C560F828ACD6CE00C6F794 /* PageViewController.swift */; };
@@ -62,8 +62,8 @@
 		E1ABB52A289B43D400A7FD65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1ABB52C289B43D400A7FD65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1ABB532289B43F000A7FD65 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		E1ABB534289B441A00A7FD65 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = SOURCE_ROOT; };
-		E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbCollectionViewCell.swift; sourceTree = "<group>"; };
+		E1ABB534289B441A00A7FD65 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIKey.swift; path = TrendMediaDataBaseProject/APIKey.swift; sourceTree = SOURCE_ROOT; };
+		E1ABB53F289B45A900A7FD65 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		E1AC6C1D28A2C12100208338 /* OverViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverViewTableViewCell.swift; sourceTree = "<group>"; };
 		E1AC6C1E28A2C12100208338 /* OverViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverViewTableViewCell.xib; sourceTree = "<group>"; };
 		E1C560F828ACD6CE00C6F794 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -93,35 +93,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E111C77C28A0F4A1003B8050 /* WebView */ = {
-			isa = PBXGroup;
-			children = (
-				E111C77A28A0F474003B8050 /* YoutubeWebViewController.swift */,
-			);
-			path = WebView;
-			sourceTree = "<group>";
-		};
-		E12D6D0628A4D5C6000DF7C0 /* Map */ = {
-			isa = PBXGroup;
-			children = (
-				E12D6D0428A4D5BF000DF7C0 /* MapViewController.swift */,
-			);
-			path = Map;
-			sourceTree = "<group>";
-		};
-		E1443E56289D066500267E92 /* detail */ = {
-			isa = PBXGroup;
-			children = (
-				E1443E61289D3C8200267E92 /* DetailTableViewCell.swift */,
-				E1443E62289D3C8200267E92 /* DetailTableViewCell.xib */,
-				E1AC6C1D28A2C12100208338 /* OverViewTableViewCell.swift */,
-				E1AC6C1E28A2C12100208338 /* OverViewTableViewCell.xib */,
-				E1443E52289D024200267E92 /* DetailViewController.swift */,
-			);
-			path = detail;
-			sourceTree = "<group>";
-		};
-		E17662C2289C44EB00DA9908 /* basic */ = {
+		E17662C2289C44EB00DA9908 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				E1ABB527289B43D400A7FD65 /* Assets.xcassets */,
@@ -129,17 +101,7 @@
 				E1ABB51E289B43D000A7FD65 /* AppDelegate.swift */,
 				E1ABB520289B43D000A7FD65 /* SceneDelegate.swift */,
 			);
-			path = basic;
-			sourceTree = "<group>";
-		};
-		E17662C3289C450000DA9908 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				E1ABB522289B43D000A7FD65 /* MainViewController.swift */,
-				E1443E57289D170A00267E92 /* APIManager.swift */,
-				E1ABB53F289B45A900A7FD65 /* TmdbCollectionViewCell.swift */,
-			);
-			path = Main;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		E1ABB512289B43D000A7FD65 = {
@@ -162,17 +124,13 @@
 		E1ABB51D289B43D000A7FD65 /* TrendMediaDataBaseProject */ = {
 			isa = PBXGroup;
 			children = (
-				E17662BD289BDE9D00DA9908 /* Identifier.swift */,
 				E1ABB534289B441A00A7FD65 /* APIKey.swift */,
-				E17662B9289BAD3100DA9908 /* Extension+Design.swift */,
-				E1443E5F289D388C00267E92 /* DataStruct.swift */,
-				E1C560FA28ACD6DA00C6F794 /* PageViewController */,
-				E17662C3289C450000DA9908 /* Main */,
-				E1443E56289D066500267E92 /* detail */,
-				E17662C2289C44EB00DA9908 /* basic */,
-				E111C77C28A0F4A1003B8050 /* WebView */,
-				E1C98DC428A24D350030D943 /* TMDB */,
-				E12D6D0628A4D5C6000DF7C0 /* Map */,
+				E17662C2289C44EB00DA9908 /* Resource */,
+				E1DC110A28B0A6E200F66575 /* ViewCell */,
+				E1DC110E28B0A77900F66575 /* StoryBoard & Xib & ViewCell */,
+				E1DC110D28B0A76E00F66575 /* ViewController */,
+				E1DC110C28B0A70C00F66575 /* NetWork */,
+				E1DC110B28B0A6FF00F66575 /* Protocol */,
 				E1ABB52C289B43D400A7FD65 /* Info.plist */,
 			);
 			path = TrendMediaDataBaseProject;
@@ -189,18 +147,84 @@
 			path = PageViewController;
 			sourceTree = "<group>";
 		};
-		E1C98DC428A24D350030D943 /* TMDB */ = {
+		E1DC110928B0A6D600F66575 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
-				E1ABB524289B43D000A7FD65 /* Main.storyboard */,
-				E1C98DC528A24D860030D943 /* TMDBViewController.swift */,
-				E1C98DCB28A250F70030D943 /* TMDBTableViewCell.swift */,
-				E1C98DC728A24EC20030D943 /* TMDBCollectionViewCell.swift */,
-				E1C98DC828A24EC20030D943 /* TMDBCollectionViewCell.xib */,
 				E1C98DCF28A2656C0030D943 /* cardView.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		E1DC110A28B0A6E200F66575 /* ViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E1DC110928B0A6D600F66575 /* UIView */,
+				E1C98DCB28A250F70030D943 /* TMDBTableViewCell.swift */,
+				E1ABB53F289B45A900A7FD65 /* MainCollectionViewCell.swift */,
+				E1443E61289D3C8200267E92 /* DetailTableViewCell.swift */,
+				E1AC6C1D28A2C12100208338 /* OverViewTableViewCell.swift */,
+				E1C98DC728A24EC20030D943 /* TMDBCollectionViewCell.swift */,
+			);
+			path = ViewCell;
+			sourceTree = "<group>";
+		};
+		E1DC110B28B0A6FF00F66575 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				E17662BD289BDE9D00DA9908 /* Identifier.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		E1DC110C28B0A70C00F66575 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				E1443E57289D170A00267E92 /* APIManager.swift */,
+				E1443E5F289D388C00267E92 /* DataStruct.swift */,
+				E17662B9289BAD3100DA9908 /* Extension+Design.swift */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
+		E1DC110D28B0A76E00F66575 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E12D6D0428A4D5BF000DF7C0 /* MapViewController.swift */,
+				E1443E52289D024200267E92 /* DetailViewController.swift */,
+				E1ABB522289B43D000A7FD65 /* MainViewController.swift */,
+				E1C98DC528A24D860030D943 /* TMDBViewController.swift */,
+				E111C77A28A0F474003B8050 /* YoutubeWebViewController.swift */,
+				E1C560FA28ACD6DA00C6F794 /* PageViewController */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E1DC110E28B0A77900F66575 /* StoryBoard & Xib & ViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E1DC111028B0A87700F66575 /* Xib */,
+				E1DC110F28B0A7CE00F66575 /* ViewCell */,
+				E1ABB524289B43D000A7FD65 /* Main.storyboard */,
+			);
+			path = "StoryBoard & Xib & ViewCell";
+			sourceTree = "<group>";
+		};
+		E1DC110F28B0A7CE00F66575 /* ViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E1443E62289D3C8200267E92 /* DetailTableViewCell.xib */,
+				E1AC6C1E28A2C12100208338 /* OverViewTableViewCell.xib */,
+				E1C98DC828A24EC20030D943 /* TMDBCollectionViewCell.xib */,
+			);
+			path = ViewCell;
+			sourceTree = "<group>";
+		};
+		E1DC111028B0A87700F66575 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
 				E1C98DD128A2657C0030D943 /* cardView.xib */,
 			);
-			path = TMDB;
+			path = Xib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,7 +325,7 @@
 				E12D6D0528A4D5BF000DF7C0 /* MapViewController.swift in Sources */,
 				E1C5610028ACD74B00C6F794 /* ThirdViewController.swift in Sources */,
 				E111C77B28A0F474003B8050 /* YoutubeWebViewController.swift in Sources */,
-				E1ABB540289B45A900A7FD65 /* TmdbCollectionViewCell.swift in Sources */,
+				E1ABB540289B45A900A7FD65 /* MainCollectionViewCell.swift in Sources */,
 				E1ABB51F289B43D000A7FD65 /* AppDelegate.swift in Sources */,
 				E1ABB535289B441A00A7FD65 /* APIKey.swift in Sources */,
 				E1443E60289D388C00267E92 /* DataStruct.swift in Sources */,
