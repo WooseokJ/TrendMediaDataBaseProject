@@ -42,8 +42,9 @@ func layoutSetting(collectionview: UICollectionView) {
 extension UIButton {
     func buttonDesign(title: String, imageName: String) {
         self.setTitle(title, for: .normal)
-        self.tintColor = .black
+        self.tintColor = .white
         self.setImage(UIImage(systemName: imageName), for: .normal)
+        
     }
     
     
@@ -73,11 +74,12 @@ extension UILabel {
         format.dateFormat = "MM/dd/yyyy"
         guard date != nil else {return}
         self.text = format.string(from: date ?? Date())
-        self.textColor = .systemGray2
+        self.textColor = .white
     }
     func genreDesign(title: String) {
         self.text = ("#"+title)
         self.font = .preferredFont(forTextStyle: .title2, compatibleWith: .none)
+        self.textColor = .white
     }
 }
 

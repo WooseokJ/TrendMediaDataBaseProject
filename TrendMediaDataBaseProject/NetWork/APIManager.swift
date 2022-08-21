@@ -40,7 +40,7 @@ class APIManager {
     }
     
     // detail 부문에서 id,poster이미지 불러오기
-    func callRequest(tv_id: Int, completionHandler: @escaping([recommendTVData]) -> () ) { //json파일 인풋
+    func callRequest(tv_id: Int, completionHandler: @escaping( [recommendTVData] ) -> () ) { //json파일 인풋
         let url  = endPoint.tvURL + "\(tv_id)/recommendations?api_key=\(APIKey.TMDBKey)"
         print(url)
         AF.request(url, method: .get).validate().responseData(queue: .global()) { response in
@@ -67,7 +67,7 @@ class APIManager {
     
     
     // 추천 데이터 넣기
-    func recommendInsert(tvIDList: [Int] , completionHandler: @escaping ([[recommendTVData]]) -> ()) {
+    func recommendInsert(tvIDList: [Int] , completionHandler: @escaping ( [[recommendTVData]] ) -> () ) {
         var recommendTVDataList : [[recommendTVData]] = []
 //        print("tvid는 이거야 : ",tv_id)
         guard tvIDList.count >= 4 else {
